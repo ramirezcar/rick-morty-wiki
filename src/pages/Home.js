@@ -29,7 +29,7 @@ function Home() {
       }
     fetchData();
     }, 500);
-    console.log(data);
+    // console.log(data);
   }, [searchValue, selectedResource]);
 
   // Manejador de cambio en select Recurso
