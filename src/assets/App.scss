@@ -1,0 +1,87 @@
+/* change the colors */
+$primary: #792470;
+$danger: #dd0055;
+$success: rgb(152, 208, 107);
+$warning: rgb(233, 203, 84);
+$info: rgb(121, 150, 223);
+
+$body-bg: #f7f4f6;
+$light: #ebebeb;
+$body-color: #28372e;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 540px,
+  lg: 720px,
+  xl: 940px,
+  xxl: 1080px
+);
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,400;1,700;1,900&display=swap');
+$font-family-sans-serif:
+  'Roboto' #{"/* rtl:insert:Arabic */"},
+  // Cross-platform generic font family (default user interface font)
+  system-ui,
+  // Safari for macOS and iOS (San Francisco)
+  -apple-system,
+  // Chrome < 56 for macOS (San Francisco)
+  'Roboto',
+  // Windows
+  "Segoe UI",
+  // Android
+  'Roboto',
+  // Basic web fallback
+  Arial,
+  // Linux
+  'Roboto',
+  // Sans serif fallback
+  sans-serif,
+  // Emoji fonts
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+@font-face {
+  font-family: 'Roboto Slab', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,400;1,700;1,900&display=swap');
+  font-style: 700 1000;
+}
+
+.character-img {
+  object-fit: cover;
+  height: 14rem;
+}
+
+.character-img-sm {
+  object-fit: cover;
+  height: 4rem;
+}
+
+.fw-black {
+  font-weight: 900 !important;
+}
+
+iframe {
+  display: none;
+}
+
+.icon-lg{
+  width: 22px;
+}
+
+.landing {
+  text-transform: uppercase;
+  height: 244px;
+}
+
+.list-characters {
+  max-height: 411px;
+}
+
+.quote {
+  font-size: .750em
+}
+
+svg.waiting-svg {
+  width: 420px;
+}
+
+@import "bootstrap";
