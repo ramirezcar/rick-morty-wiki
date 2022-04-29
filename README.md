@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Rick&Morty: Challenge React
+## Consideraciones Técnicas
+Queda a criterio del evaluado:
+- La elección del framework CSS a utilizar (bootstrap, material, etc)
+- La elección de un componente de terceros para renderizado de tablas
+- La elección de una biblioteca http para comunicación con APIs
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## **Enunciado**
+Haciendo uso de la [API Pública](https://rickandmortyapi.com/) de Rick & Morty, resolver:
 
-## Available Scripts
+## Barra de búsqueda
+Desarrollar una barra de búsqueda que permita realizar consultas por episodios, ubicaciones o personajes. La visualización de resultados debera realizarse por medio de cards
 
-In the project directory, you can run:
+### Búsqueda por Personaje
+Mostrar:
+- Nombre
+- Género
+- Ubicación
+- Un episodio en el que haya aparecido (debe variar cada vez que se muestra el personaje)
+- Foto
 
-### `npm start`
+### Búsqueda por Ubicación
+Mostrar:
+- Nombre
+- Tipo
+- Dimensión
+- Cantidad de residentes
+- Fecha de creación
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Búsqueda por Episodios
+Mostrar:
+- Nombre
+- Fecha de emisión
+- Código de episodio
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Comparativa de personajes
+Reutilizando la barra de búsqueda del punto anterior, permitir realizar una comparación entre personajes teniendo en cuenta los siguientes campos:
+- Nombre
+- Género
+- Ubicación
+- Especie
+- Estado
+- Cantidad de episodios que compartieron con cada personaje comparado
 
-### `npm test`
+### Consideraciones
+- El máximo de comparaciones es de 3 personajes por búsqueda
+- La visualización de esta sección queda a criterio del evaluado
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Detalle de episodios
+Al realizar una búsqueda por episodios, se debe poder ofrecer un mayor nivel de detalle de los episodios por medio de una acción de “+ info”
 
-### `npm run build`
+### Consideraciones
+- El detalle debe mostrar:
+  - La información presentada en los resultados de la búsqueda
+  - Un listado de personajes que participaron en el episodio, mostrando nombre e imagen de cada uno
+- La visualización de esta sección queda a criterio del evaluado
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
