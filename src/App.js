@@ -1,21 +1,11 @@
-import './assets/App.scss';
-import Header from './pages/layouts/Header';
-import Home from './pages/Home';
-// import Comparison from './pages/Comparison';
-import Route from './components/utils/Route';
+import './assets/custom.scss';
+import router from './routes';
+import { RouterProvider } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <Header>
-        <Route path="/">
-          <Home />
-        </Route>
-        <Route path="/comparison">
-          {/* <Comparison /> */}
-        </Route>
-      </Header>
-
+      <RouterProvider router={router} />
     </div>
   );
 }

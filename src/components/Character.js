@@ -19,18 +19,18 @@ function Character(props) {
     }
   }, [character]);
 
-  return(
+  return (
     <>
-      { !(typeof character.location == 'undefined') ?
+      {!(typeof character.location == 'undefined') ?
         <div>
           <img src={character.image} className="card-img-top character-img" title={character.name} alt={character.name} />
           <div className="card-body">
             <h5 className="card-title text-uppercase fw-bold text-primary text-truncate" title={character.name}>{character.name}</h5>
-            <div className="card-text lh-1">
-              <InfoField title='Género' value={character.gender} icon={<FaVenusMars className='w-auto h-auto px-2 col-2' />}></InfoField>
-              <InfoField title='Ubicación' value={character.location.name} icon={<FaMapMarkerAlt className='w-auto h-auto px-2 col-2' />}></InfoField>
-              { episode ? 
-                <InfoField title='Primera aparición' value={episode} icon={<FaStarHalfAlt className='w-auto h-auto px-2 col-2' />}></InfoField> : 
+            <div className="card-text gap-3">
+              <InfoField title='Género' value={character.gender} icon={<FaVenusMars className='w-auto h-auto pe-2 col-2' />}></InfoField>
+              <InfoField title='Ubicación' value={character.location.name} icon={<FaMapMarkerAlt className='w-auto h-auto pe-2 col-2' />}></InfoField>
+              {episode ?
+                <InfoField title='Primera aparición' value={episode} icon={<FaStarHalfAlt className='w-auto h-auto pe-2 col-2' />}></InfoField> :
                 <LoadingSpinner></LoadingSpinner>
               }
             </div>

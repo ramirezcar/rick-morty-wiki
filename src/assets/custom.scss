@@ -1,0 +1,236 @@
+$blue: #7879F1;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #d63384;
+$red: #dc3545;
+$orange: #fd7e14;
+$yellow: #ffc107;
+$green: #198754;
+$teal: #20c997;
+$cyan: #0dcaf0;
+
+// Contraste
+$min-contrast-ratio: 2.5 !default;
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "~bootstrap/scss/functions";
+
+$border-width: 2px;
+$border-radius: 0;
+
+@import "~bootstrap/scss/variables";
+
+// 4. Include any default map overrides here
+$primary: $blue;
+$secondary: $gray-600;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
+$light: $gray-100;
+$dark: $gray-900;
+
+$body-bg: #f7f4f6;
+$body-color: #28372e;
+
+// 5. Include remainder of required parts
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+
+// 6. Optionally include any other parts as needed
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/helpers";
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "~bootstrap/scss/utilities/api";
+
+
+@import "~bootstrap/scss/bootstrap";
+
+.btn {
+  filter: drop-shadow(4px 4px 0px rgba(120, 121, 241, 0.4));
+}
+
+.border-shadow {
+  filter: drop-shadow(4px 4px 0px rgba(120, 121, 241, 0.4));
+}
+
+.container {
+  max-width: 960px !important;
+}
+
+.character-img {
+  object-fit: cover;
+  height: 14rem;
+}
+
+.character-img-sm {
+  object-fit: cover;
+  height: 4rem;
+}
+
+.list-characters {
+  max-height: 411px;
+}
+
+.quote {
+  font-size: .750em
+}
+
+h5 {
+  font-family: 'Sue Ellen Francisco';
+}
+
+header {
+  height: calc(200px + 60px);
+
+  .background {
+    height: 200px;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.82) 32.41%, rgba(209, 209, 209, 0.7708) 100%), url(https://mir-s3-cdn-cf.behance.net/project_modules/fs/b4cfb658567903.5a45484a12534.jpg);
+    background-position: center;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: -webkit-fill-available;
+    z-index: -1;
+  }
+
+  .landing {
+    height: 60%;
+    letter-spacing: -3px;
+    user-select: none;
+  }
+}
+
+nav {
+  height: 20%;
+  transform: translateY(-50%);
+}
+
+.card {
+  filter: drop-shadow(5px 5px 0px rgba(120, 121, 241, 0.4));
+  border: 1px solid rgba($primary, .4)
+}
+
+$primary-shadow: 0 3px 15px 1px #5858f448;
+
+.search-input {
+  max-width: 600px;
+  transform: translateY(-50%);
+  background-color: $white;
+
+  &:active,
+  &:focus-visible,
+  &:focus-within,
+  &:target,
+  &:focus {
+    border: $border-width solid $primary  !important;
+    box-shadow: $primary-shadow  !important;
+  }
+
+  input,
+  select {
+    height: 100%;
+    border: none;
+    box-shadow: none !important;
+  }
+}
+
+.display- {
+
+  &4,
+  &5,
+  &6 {
+    font-family: 'Sue Ellen Francisco', cursive;
+  }
+}
+
+.form-control {
+  &::placeholder {
+    color: var(--bs-gray-500);
+  }
+}
+
+input,
+select,
+button {
+  &:focus {
+    box-shadow: 0 3px 15px 1px #7878f180;
+  }
+}
+
+//form-control
+$input-padding-y: $input-btn-padding-y;
+$input-padding-x: $input-btn-padding-x;
+$input-font-family: $input-btn-font-family;
+$input-font-size: $input-btn-font-size;
+$input-font-weight: $font-weight-base;
+$input-line-height: $input-btn-line-height;
+
+$input-padding-y-sm: $input-btn-padding-y-sm;
+$input-padding-x-sm: $input-btn-padding-x-sm;
+$input-font-size-sm: $input-btn-font-size-sm;
+
+$input-padding-y-lg: $input-btn-padding-y-lg;
+$input-padding-x-lg: $input-btn-padding-x-lg;
+$input-font-size-lg: $input-btn-font-size-lg;
+
+$input-bg: $body-bg;
+$input-disabled-color: null;
+$input-disabled-bg: $gray-200;
+$input-disabled-border-color: null;
+
+$input-color: $body-color;
+$input-border-color: $gray-400;
+$input-border-width: $input-btn-border-width;
+$input-box-shadow: 0;
+
+$input-border-radius: $border-radius;
+$input-border-radius-sm: $border-radius-sm;
+$input-border-radius-lg: $border-radius-lg;
+
+$input-focus-bg: $input-bg;
+$input-focus-border-color: tint-color($component-active-bg, 50%);
+$input-focus-color: $input-color;
+$input-focus-width: $input-btn-focus-width;
+$input-focus-box-shadow: 0;
+
+$input-placeholder-color: $gray-600;
+$input-plaintext-color: $body-color;
+
+$input-height-border: $input-border-width * 2;
+
+$input-height-inner: add($input-line-height * 1em, $input-padding-y * 2);
+$input-height-inner-half: add($input-line-height * .5em, $input-padding-y);
+$input-height-inner-quarter: add($input-line-height * .25em, $input-padding-y * .5);
+
+$input-height: add($input-line-height * 1em, add($input-padding-y * 2, $input-height-border, false));
+$input-height-sm: add($input-line-height * 1em, add($input-padding-y-sm * 2, $input-height-border, false));
+$input-height-lg: add($input-line-height * 1em, add($input-padding-y-lg * 2, $input-height-border, false));
+
+$input-transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+$form-color-width: 3rem;
+
+//card
+$card-spacer-y: $spacer;
+$card-spacer-x: $spacer;
+$card-title-spacer-y: $spacer * .5;
+$card-border-width: $border-width;
+$card-border-radius: $border-radius;
+$card-border-color: rgba($primary, .4);
+$card-inner-border-radius: subtract($card-border-radius, $card-border-width);
+$card-cap-padding-y: $card-spacer-y * 1;
+$card-cap-padding-x: $card-spacer-x;
+$card-cap-bg: rgba($black, .03);
+$card-cap-color: null;
+$card-height: null;
+$card-color: null;
+$card-bg: $white;
+$card-img-overlay-padding: $spacer;
+$card-group-margin: $grid-gutter-width * .5;

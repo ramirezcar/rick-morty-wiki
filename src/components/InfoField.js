@@ -1,13 +1,13 @@
-function InfoField({title, value, icon}) {
-  return ( 
-    <div className='row d-flex mb-2 mx-0'>
+function InfoField({ title, value, icon }) {
+  return (
+    <div className='d-flex mb-2 mx-0'>
       {icon}
-      <div className='col-10 mx-0 lh-1'>
-        <div className='fw-bold quote row'>{title}</div>
-        <span className='fw-light row'>{value}</span>
+      <div className='mx-0 lh-1'>
+        <h5 className='mb-0'>{title}</h5>
+        <span className='fw-light'>{value}</span>
       </div>
     </div>
-   );
+  );
 }
 
 export default InfoField;

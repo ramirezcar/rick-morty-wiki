@@ -1,96 +1,73 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Card from '../components/Card'
 import WaitingBrand from '../components/utils/WaitingBrand'
-import { FaSearch } from 'react-icons/fa';
-import { fetchAPI } from '../services/fetchResource';
+import { getAll, getAllByName } from '../services';
+import { useSearchParams } from 'react-router-dom';
+import Header from '../components/ui/Header';
+import { Pagination } from 'react-bootstrap';
+import Paginator from '../components/ui/Paginator';
 
 function Home() {
+  const [resource, setResource] = useState(1);
   const [data, setData] = useState([]);
-  const [selectedTextResource, setSelectedTextResource] = useState();
-  const [selectedResource, setSelectedResource] = useState(1);
-  const [noResult] = useState();
-  const [searchValue, setSearchValue] = useState('');
-  const resourceNames = ['Personaje', 'Ubicación', 'Episodio']
+  const [meta, setMeta] = useState(null);
 
-  // Manejador de tipeo en input de busqueda
-  const handleInputChange = (e) => {
-    const value = e.target.value
-    setSearchValue(value)
+  let [searchParams, setSearchParams] = useSearchParams();
+
+  const fetchAll = async () => {
+    const { results, info } = await getAll(resource);
+    setData(results);
+    setMeta(info);
+  }
+
+  const searchByName = async (resource, page) => {
+    const searchValue = searchParams.get('query')
+    const { results, info } = await getAllByName(resource, searchValue, page);
+    setData(results);
+    setMeta(info);
+  };
+
+
+  const handleClick = (e) => {
+    const page = e.target.id
+    searchByName(resource, page)
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      async function fetchData() {
-        // Criterio para buscar, 2 o mas caracteres
-        if (searchValue.length > 3) {
-          const fetch = await fetchAPI(selectedResource, searchValue);
-          setData(fetch);
-        }
-      }
-    fetchData();
-    }, 500);
-    // console.log(data);
-  }, [searchValue, selectedResource]);
+    setResource(searchParams.get('resource') ? searchParams.get('resource') : 1)
+    if (searchParams.get('query')) {
+      searchByName(searchParams.get('resource'));
+    }
+  }, [searchParams])
 
-  // Manejador de cambio en select Recurso
-  function handleSelectChange(e) {
-    const selected = e.target.options[e.target.selectedIndex]
-    const selectedIndex = selected.value
-    setSelectedTextResource(selected.innerText)
-    setSelectedResource(selectedIndex)
-  }
+  useEffect(() => {
+    if (!searchParams.get('query')) fetchAll();
+  }, [])
 
   return (
     <>
-      <nav className="container-lg navbar navbar-expand-md navbar-light bg-light">
-        <div className="container-fluid">
-          <div className="collapse navbar-collapse text-uppercase">
-            <div className="navbar-nav fw-normal me-3">
-              <a className={"nav-link"} href="/">Inicio</a>
-            </div>
-          </div>
-          <div className="row col-md-6 pb-2">
-            <div className="col-md-8 pt-2">
-              <div className="input-group input-group">
-                <input 
-                  type="text" 
-                  className="form-control" 
-                  placeholder={"Buscar "+ (selectedTextResource ? selectedTextResource : '').toLocaleLowerCase()} 
-                  value={searchValue} aria-label="Busca algo sobre la serie." 
-                  onChange={handleInputChange} 
-                  aria-describedby="basic-addon2" 
-                />
-                <span className="input-group-text" >{<FaSearch color='#white' className='' />}</span>
-              </div>
-            </div>
-            <div className="col-md-4 pt-2">
-              <select className="form-select form-select" defaultValue="1" onChange={handleSelectChange} aria-label=".form-select-lg example">
-                { resourceNames.map((name, index) => {
-                  return <option value={index+1} key={index}>{name}</option>
-                }) }
-              </select>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      <section className="container-xl my-5">
+      <Header />
+      <section className="container mb-5">
+        {searchParams.get('query') &&
+          <h4 className='fw-light mb-2 text-primary'>
+            Resultados de búsqueda {searchParams.get('query') ? `para '${searchParams.get('query')}'` : ''}
+            <small className='text-muted fs-5 ms-2'>{data?.length} resultados</small>
+          </h4>
+        }
         <div className="py-2 row">
-          { data ? 
-            <h3 className='fw-light text-uppercase mb-3'>Resultados</h3> : ''
-          }
-          { data?.length ?
+          {data?.length ?
             data.map((object, index) => {
-              let staticResourceType = selectedResource
+              let staticResourceType = resource
               return (
                 <Card colSize={4} object={object} index={index} resourceType={staticResourceType} key={index}></Card>
               )
-            }) 
-          : 
-            <WaitingBrand selectedTextResource={selectedTextResource} />
+            })
+            :
+            null
           }
         </div>
       </section>
+      <Paginator totalPages={meta?.pages} handleClick={handleClick}></Paginator>
     </>
   );
 }
